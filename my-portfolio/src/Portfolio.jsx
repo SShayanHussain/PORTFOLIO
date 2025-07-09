@@ -68,25 +68,17 @@ const Portfolio = () => {
         'Built and benchmarked KNN, Logistic Regression, and MLP models, achieving an 18% accuracy improvement; visualized results with Matplotlib.',
       image: '/images/weather-prediction.png', // Ensure this path is correct
       tags: ['Python', 'Scikit-learn', 'Matplotlib'],
-      github: '#', // Replace with actual GitHub link
+      github: 'https://github.com/SShayanHussain/Weather-Predicting-System-Machine-Learning-.git', // Replace with actual GitHub link
       live: '#' // Replace with actual live link
     },
-    {
-      title: 'AI-Based Car Maintenance Predictor',
-      description:
-        'Developed a maintenance-prediction classifier with 85% accuracy using robust preprocessing and stratified sampling.',
-      image: '/images/car-maintenance.png', // Ensure this path is correct
-      tags: ['Python', 'MLP', 'Scikit-learn'],
-      github: '#',
-      live: '#'
-    },
+    
     {
       title: 'IoT Weather Monitoring System',
       description:
         'Programmed a live-data weather tracker (3 sensors) with a Django frontend; achieved 95% accuracy and real-time firmware updates.',
       image: '/images/iot-weather.png', // Ensure this path is correct
       tags: ['ESP32', 'Django', 'JavaScript'],
-      github: '#',
+      github: 'https://github.com/SShayanHussain/Weather-Monitoring-System-using-Arduino.git',
       live: '#'
     },
     {
@@ -95,7 +87,7 @@ const Portfolio = () => {
         'Deployed in 10+ environments; cut unauthorized access by 70% via LED/buzzer feedback and secure lock logic.',
       image: '/images/rfid-doorlock.png', // Ensure this path is correct
       tags: ['Arduino', 'RC522', 'Servo'],
-      github: '#',
+      github: 'https://github.com/SShayanHussain/SMART-DOOR-LOCK-SYSTEM-USING-ARDUINO.git',
       live: '#'
     },
     {
@@ -104,7 +96,7 @@ const Portfolio = () => {
         'Built a CRUD car-listing platform; improved input validation to reduce invalid submissions by 30%.',
       image: '/images/car-marketplace.png', // Ensure this path is correct
       tags: ['Django', 'Java', 'SQL'],
-      github: '#',
+      github: 'https://github.com/SShayanHussain/CAR-MARKETPLACE.git',
       live: '#'
     },
     {
@@ -113,7 +105,7 @@ const Portfolio = () => {
         'Created a CLI app for fetching/logging weather data with email alerts; used offline by 20+ users.',
       image: '/images/weather-cli.png', // Ensure this path is correct
       tags: ['C', 'JSON API', 'File I/O'],
-      github: '#',
+      github: 'https://github.com/SShayanHussain/Weather-Forecast-using-C.git',
       live: '#'
     }
   ];
