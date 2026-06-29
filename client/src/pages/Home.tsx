@@ -137,7 +137,7 @@ export default function Home() {
       <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-cyan-500/10">
         <div className="container flex items-center justify-between py-4">
           <div className="flex items-center gap-2">
-            <img src="/manus-storage/brand-logo_f0f04154.png" alt="Logo" className="w-8 h-8" />
+            <img src="/logo.webp" alt="Logo" className="w-8 h-8" />
             <span className="font-display text-xl font-bold text-white">Shayan</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
@@ -369,7 +369,7 @@ export default function Home() {
       <footer className="bg-background border-t border-cyan-500/10 py-8">
         <div className="container flex flex-col md:flex-row items-center justify-between">
           <div className="flex items-center gap-2 mb-4 md:mb-0">
-            <img src="/manus-storage/brand-logo_f0f04154.png" alt="Logo" className="w-6 h-6" />
+            <img src="/logo.webp" alt="Logo" className="w-6 h-6" />
             <span className="font-display font-bold">Shayan Hussain</span>
           </div>
           <p className="text-gray-500 text-sm">© 2025 Shayan Hussain. All rights reserved.</p>
