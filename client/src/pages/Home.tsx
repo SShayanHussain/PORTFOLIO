@@ -13,6 +13,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [hovered3dProject, setHovered3dProject] = useState<number | null>(null);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -131,6 +132,129 @@ export default function Home() {
     },
   ];
 
+  const frontendProjects = [
+    {
+      id: 1,
+      title: "Clearwater Dental",
+      category: "Dental Clinic",
+      description: "A modern, welcoming dental clinic website featuring easy appointment scheduling, service details, and patient testimonials.",
+      tech: ["3D", "Frontend", "UI/UX"],
+      video: "/videos/clearwater-dental.mp4",
+      liveLink: "https://cleanwater-dental.vercel.app/",
+      githubLink: "#",
+    },
+    {
+      id: 2,
+      title: "Brightpath",
+      category: "EdTech",
+      description: "An interactive educational platform designed for seamless online learning, course management, and student engagement.",
+      tech: ["3D", "Frontend", "UI/UX"],
+      video: "/videos/brightpath.mp4",
+      liveLink: "https://bright-path-edtech.vercel.app/",
+      githubLink: "#",
+    },
+    {
+      id: 3,
+      title: "Solene",
+      category: "Fashion",
+      description: "A sleek and stylish e-commerce storefront showcasing the latest fashion trends with an intuitive, premium shopping experience.",
+      tech: ["3D", "Frontend", "UI/UX"],
+      video: "/videos/solene.mp4",
+      liveLink: "https://solene-fashion.vercel.app/",
+      githubLink: "#",
+    },
+    {
+      id: 4,
+      title: "Forge Fitness",
+      category: "Gym Fitness",
+      description: "A high-energy fitness center website complete with class schedules, trainer profiles, and quick membership sign-ups.",
+      tech: ["3D", "Frontend", "UI/UX"],
+      video: "/videos/forge-fitness.mp4",
+      liveLink: "https://forge-fitness-theta-five.vercel.app/",
+      githubLink: "#",
+    },
+    {
+      id: 5,
+      title: "Sterling Home Co.",
+      category: "Home Services",
+      description: "A reliable booking platform for home maintenance and repair services, featuring customer reviews and instant quoting.",
+      tech: ["3D", "Frontend", "UI/UX"],
+      video: "/videos/sterling-home.mp4",
+      liveLink: "https://sterling-home.vercel.app/",
+      githubLink: "#",
+    },
+    {
+      id: 6,
+      title: "Hartwell & Cole",
+      category: "Law Firm",
+      description: "A professional and trustworthy legal practice website detailing practice areas, attorney profiles, and easy consultation booking.",
+      tech: ["3D", "Frontend", "UI/UX"],
+      video: "/videos/hartwell-cole.mp4",
+      liveLink: "https://hartwell-and-co.vercel.app/",
+      githubLink: "#",
+    },
+    {
+      id: 7,
+      title: "Vantage Freight",
+      category: "Logistics",
+      description: "A robust logistics and freight forwarding site highlighting shipment tracking, core service offerings, and global reach.",
+      tech: ["3D", "Frontend", "UI/UX"],
+      video: "/videos/vantage-freight.mp4",
+      liveLink: "https://vantage-freight-logistics.vercel.app/",
+      githubLink: "#",
+    },
+    {
+      id: 8,
+      title: "Wren Hale",
+      category: "Photographer",
+      description: "A visually stunning photography portfolio showcasing high-resolution galleries, service packages, and a contact portal.",
+      tech: ["3D", "Frontend", "UI/UX"],
+      video: "/videos/wren-hale.mp4",
+      liveLink: "https://wren-hale.vercel.app/",
+      githubLink: "#",
+    },
+    {
+      id: 9,
+      title: "Meridian Properties",
+      category: "Real Estate",
+      description: "A comprehensive real estate portal for beautiful property listings, agent directories, and seamless neighborhood exploration.",
+      tech: ["3D", "Frontend", "UI/UX"],
+      video: "/videos/meridian-properties.mp4",
+      liveLink: "https://meridian-props.vercel.app/",
+      githubLink: "#",
+    },
+    {
+      id: 10,
+      title: "Ember & Salt",
+      category: "Restaurant",
+      description: "An appetizing restaurant website featuring dynamic digital menus, integrated online reservations, and vibrant food imagery.",
+      tech: ["3D", "Frontend", "UI/UX"],
+      video: "/videos/ember-salt.mp4",
+      liveLink: "https://ember-salt-bistro.vercel.app/",
+      githubLink: "#",
+    },
+    {
+      id: 11,
+      title: "Pulse",
+      category: "SaaS Startup",
+      description: "A clean, conversion-focused landing page for a software-as-a-service product highlighting key features and pricing tiers.",
+      tech: ["3D", "Frontend", "UI/UX"],
+      video: "/videos/pulse.mp4",
+      liveLink: "https://pulse-saas-startup.vercel.app/",
+      githubLink: "#",
+    },
+    {
+      id: 12,
+      title: "Lumen Studio",
+      category: "Salon Spa",
+      description: "A relaxing and elegant spa website offering detailed service menus, wellness packages, and direct online booking.",
+      tech: ["3D", "Frontend", "UI/UX"],
+      video: "/videos/lumen-studio.mp4",
+      liveLink: "https://lumen-studio-ten.vercel.app/",
+      githubLink: "#",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-hidden">
       {/* Navigation */}
@@ -143,6 +267,7 @@ export default function Home() {
           <div className="hidden md:flex items-center gap-8">
             <button onClick={() => scrollToSection('expertise')} className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">Expertise</button>
             <button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">Projects</button>
+            <button onClick={() => scrollToSection('frontend-projects')} className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">3D UI</button>
             <button onClick={() => scrollToSection('experience')} className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">Experience</button>
             <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">Contact</button>
           </div>
@@ -267,11 +392,78 @@ export default function Home() {
                   </div>
                   
                   <div className="flex gap-3">
-                    <Button variant="outline" size="sm" className="flex-1 border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="flex-1 border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10"
+                      onClick={() => window.open(project.liveLink, '_blank')}
+                    >
                       <ExternalLink className="w-4 h-4 mr-2" /> Live Demo
                     </Button>
-                    <Button variant="outline" size="sm" className="flex-1 border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10">
-                      <Github className="w-4 h-4 mr-2" /> Code
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3D Frontend Portfolio */}
+      <section id="frontend-projects" className="py-20 bg-background border-t border-cyan-500/10">
+        <div className="container">
+          <div className="mb-16">
+            <h2 className="text-5xl font-bold mb-4">3D Frontend Portfolio</h2>
+            <p className="text-gray-400 text-lg">A collection of visually stunning, interactive 3D landing pages and frontend designs</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {frontendProjects.map((project, idx) => (
+              <div
+                key={idx}
+                className="group glow-border bg-card overflow-hidden hover-lift cursor-pointer flex flex-col h-full"
+                onMouseEnter={() => setHovered3dProject(idx)}
+                onMouseLeave={() => setHovered3dProject(null)}
+              >
+                {/* Project Video */}
+                <div className="relative h-56 overflow-hidden bg-gradient-to-br from-cyan-500/10 to-purple-500/10 bg-black">
+                  <video
+                    src={project.video}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-80" />
+                </div>
+                
+                {/* Project Content */}
+                <div className="p-6 flex flex-col flex-grow relative z-10">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-mono text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">
+                      {project.category}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  <p className="text-gray-400 mb-4 flex-grow text-sm leading-relaxed">{project.description}</p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tech.map((tech, i) => (
+                      <span key={i} className="text-xs px-2 py-1 rounded bg-purple-500/10 text-purple-300 border border-purple-500/20">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div className="flex gap-3 mt-auto">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="flex-1 border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10"
+                      onClick={() => window.open(project.liveLink, '_blank')}
+                    >
+                      <ExternalLink className="w-4 h-4 mr-2" /> Live Demo
                     </Button>
                   </div>
                 </div>
