@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { ArrowRight, Github, Linkedin, Mail, ExternalLink, Code2, Brain, Zap, Cpu, Info } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, ExternalLink, Code2, Brain, Zap, Cpu, Info, Phone } from "lucide-react";
 import React, { useState } from "react";
 
 /**
@@ -115,14 +115,20 @@ export default function Home() {
     {
       icon: Code2,
       title: "Full-Stack Development",
-      description: "End-to-end web applications with React, Next.js, Node.js, Django, and FastAPI. Scalable architectures for SaaS products.",
-      skills: ["React", "Next.js", "Node.js", "Django", "FastAPI", "PostgreSQL"],
+      description: "End-to-end web applications with Next.js 14, React, and FastAPI. Scalable architectures using PostgreSQL and Redis.",
+      skills: ["Next.js 14", "React", "TypeScript", "FastAPI", "PostgreSQL", "Redis"],
     },
     {
       icon: Brain,
-      title: "AI/ML & LLMs",
-      description: "Production-grade AI systems including RAG, computer vision, NLP, and agentic AI. LLM integrations and fine-tuning.",
-      skills: ["TensorFlow", "PyTorch", "LLMs", "RAG", "Computer Vision", "NLP"],
+      title: "Applied AI & LLMs",
+      description: "Production-grade AI systems including RAG engines, semantic caching, LLM-as-a-Judge evals, and agentic workflows.",
+      skills: ["LLMs", "RAG", "pgvector", "Semantic Caching", "AI Evals", "NLP"],
+    },
+    {
+      icon: Zap,
+      title: "SaaS & Cloud Infrastructure",
+      description: "Architecting multi-tenant SaaS platforms with robust CI/CD, asynchronous workers, and AWS cloud deployments.",
+      skills: ["SaaS Architecture", "AWS (EC2/RDS)", "Docker", "Celery", "GitHub Actions", "CI/CD"],
     },
     {
       icon: Cpu,
@@ -130,21 +136,15 @@ export default function Home() {
       description: "Autonomous systems, sensor fusion, real-time processing, and embedded AI on edge devices.",
       skills: ["ROS", "YOLO", "ESP32", "Arduino", "Sensor Fusion", "Real-time Processing"],
     },
-    {
-      icon: Zap,
-      title: "SaaS & Automation",
-      description: "Custom SaaS products, workflow automation, API integrations, and scalable backend systems.",
-      skills: ["SaaS Architecture", "API Design", "Automation", "Webhooks", "Cloud Deployment"],
-    },
   ];
 
   const skills = {
-    "Languages": ["Python", "JavaScript", "TypeScript", "Java", "C", "Dart", "HTML", "CSS", "SQL"],
-    "Frontend": ["React", "Next.js", "React Native", "Flutter", "Tailwind CSS", "Shadcn/UI"],
-    "Backend": ["Django", "Flask", "FastAPI", "Node.js", "Express", "MERN Stack"],
-    "AI/ML": ["TensorFlow", "PyTorch", "Scikit-learn", "LLMs", "Transformers", "OpenCV", "YOLO"],
-    "Databases": ["PostgreSQL", "MySQL", "Supabase", "SQLite", "MongoDB"],
-    "Tools & Platforms": ["Git", "Docker", "AWS", "GCP", "Make.com", "Vercel", "Railway"],
+    "Languages": ["Python", "TypeScript", "JavaScript", "SQL", "Java", "HTML/CSS"],
+    "Frontend": ["Next.js 14", "React", "Tailwind CSS", "Shadcn/UI", "Framer Motion"],
+    "Backend": ["FastAPI", "Node.js", "Express", "Celery", "REST APIs"],
+    "AI/ML": ["LLMs", "RAG", "pgvector", "Semantic Search", "TensorFlow", "PyTorch", "YOLO"],
+    "Databases & Cache": ["PostgreSQL", "Redis", "MongoDB", "Supabase"],
+    "DevOps & Cloud": ["AWS (EC2/RDS)", "Docker", "GitHub Actions", "CI/CD", "Git", "Vercel"],
   };
 
   const experience = [
@@ -317,7 +317,7 @@ export default function Home() {
             <button onClick={() => scrollToSection('experience')} className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">Experience</button>
             <button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 cursor-pointer">Contact</button>
           </div>
-          <Button className="bg-cyan-500 hover:bg-cyan-600 text-black font-semibold">Get in Touch</Button>
+          <Button onClick={() => scrollToSection('contact')} className="bg-cyan-500 hover:bg-cyan-600 text-black font-semibold">Get in Touch</Button>
         </div>
       </nav>
 
@@ -638,12 +638,17 @@ export default function Home() {
                 <Mail className="w-5 h-5 mr-2" /> Send Email
               </Button>
             </a>
-            <a href="https://linkedin.com/in/shayanhussain" target="_blank" rel="noopener noreferrer">
+            <a href="tel:+923242123466">
+              <Button className="bg-cyan-500 hover:bg-cyan-600 text-black font-semibold px-8 py-6 text-lg">
+                <Phone className="w-5 h-5 mr-2" /> Call Me
+              </Button>
+            </a>
+            <a href="https://linkedin.com/in/sshayanhussain" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" className="border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 px-8 py-6 text-lg">
                 <Linkedin className="w-5 h-5 mr-2" /> LinkedIn
               </Button>
             </a>
-            <a href="https://github.com/ShayaniHussain" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/SShayanHussain" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" className="border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 px-8 py-6 text-lg">
                 <Github className="w-5 h-5 mr-2" /> GitHub
               </Button>
@@ -651,7 +656,7 @@ export default function Home() {
           </div>
           
           <div className="text-gray-500 text-sm">
-            <p>📧 shayanhussain28@gmail.com | 🔗 linkedin.com/in/shayanhussain | 💻 github.com/ShayaniHussain</p>
+            <p>📧 shayanhussain28@gmail.com | 📱 +92 324 2123466 | 🔗 linkedin.com/in/sshayanhussain | 💻 github.com/SShayanHussain</p>
           </div>
         </div>
       </section>
