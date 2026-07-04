@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Github, Linkedin, Mail, ExternalLink, Code2, Brain, Zap, Cpu } from "lucide-react";
-import { useState } from "react";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { ArrowRight, Github, Linkedin, Mail, ExternalLink, Code2, Brain, Zap, Cpu, Info } from "lucide-react";
+import React, { useState } from "react";
 
 /**
  * Professional Portfolio - Dark Futuristic Design
@@ -22,7 +23,52 @@ export default function Home() {
     }
   };
 
-  const projects = [
+  const projects: Array<{
+    id: number;
+    title: string;
+    category: string;
+    description: string;
+    tech: string[];
+    image: string;
+    liveLink: string;
+    githubLink: string;
+    detailedContent?: React.ReactNode;
+  }> = [
+    {
+      id: 0,
+      title: "Deflekt — AI Support Deflection Engine",
+      category: "Full-Stack AI SaaS",
+      description: "Enterprise-grade multi-tenant RAG engine that connects to company help centers to automatically answer repetitive customer questions with cited, grounded replies and automated human handoff.",
+      tech: ["Next.js 14", "TypeScript", "FastAPI (Python)", "PostgreSQL (pgvector)", "Redis", "Celery", "AWS EC2", "AWS RDS", "Docker", "GitHub Actions"],
+      image: "/manus-storage/ai-ml-showcase_78553193.png", // Placeholder image, ready for video replacement
+      liveLink: "#",
+      githubLink: "#",
+      detailedContent: (
+        <div className="space-y-4 text-sm text-gray-300 mt-4">
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">Product Overview</h4>
+            <p>Deflekt addresses a primary pain point for modern SaaS teams: support engineers spending 70% of their time answering identical, pre-documented questions. Deflekt ingests company documentation and delivers instant, cited answers with zero cross-tenant data leakage.</p>
+          </div>
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">Architecture & Engineering Highlights</h4>
+            <ul className="list-disc pl-5 space-y-1">
+              <li><strong className="text-cyan-400">Frameworks:</strong> Next.js 14 App Router (Frontend/App API) & Python FastAPI (AI Microservice).</li>
+              <li><strong className="text-cyan-400">Multi-Tenant Datastore:</strong> PostgreSQL with pgvector extension for single-datastore simplicity, with index-backed tenant_id scoping across all tables and vector embeddings.</li>
+              <li><strong className="text-cyan-400">Caching & Async Workflows:</strong> Redis for sub-18ms semantic query caching; Celery background workers for non-blocking document ingestion pipelines.</li>
+              <li><strong className="text-cyan-400">Production Infrastructure:</strong> AWS EC2 compute, AWS RDS Postgres database, Nginx reverse proxy, Docker Compose, and GitHub Actions CI/CD with GHCR.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">Quality Control & CI/CD Ethic</h4>
+            <ul className="list-disc pl-5 space-y-1">
+              <li><strong className="text-cyan-400">Fail-Loud Architecture:</strong> No placeholder text or fake embeddings; unresolvable documents or invalid keys fail loudly and trigger alerts.</li>
+              <li><strong className="text-cyan-400">Zero-Downtime Migration Pipeline:</strong> Pre-deploy container runner (Dockerfile.migrate) baselines existing schemas and applies migrations before app container restart.</li>
+              <li><strong className="text-cyan-400">Automated AI Evals:</strong> CI gate runs an LLM-as-a-Judge evaluation set testing Faithfulness, Recall@3, and Citation Accuracy on every pull request.</li>
+            </ul>
+          </div>
+        </div>
+      )
+    },
     {
       id: 1,
       title: "RAG System for Stellar LMS",
@@ -308,9 +354,11 @@ export default function Home() {
               <Button onClick={() => scrollToSection('projects')} className="bg-cyan-500 hover:bg-cyan-600 text-black font-semibold px-8 py-6 text-lg">
                 Explore My Work <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button variant="outline" className="border-cyan-500/30 text-white hover:bg-cyan-500/10 px-8 py-6 text-lg">
-                Download Resume
-              </Button>
+              <a href="/Shayan_Hussain_Resume.pdf" download="Shayan_Hussain_Resume.pdf" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="border-cyan-500/30 text-white hover:bg-cyan-500/10 px-8 py-6 text-lg">
+                  Download Resume
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -392,6 +440,28 @@ export default function Home() {
                   </div>
                   
                   <div className="flex gap-3">
+                    {project.detailedContent && (
+                      <Dialog>
+                        <DialogTrigger asChild>
+                          <Button 
+                            variant="outline" 
+                            size="sm" 
+                            className="flex-1 border-purple-500/30 text-purple-400 hover:bg-purple-500/10"
+                          >
+                            <Info className="w-4 h-4 mr-2" /> Details
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent className="max-w-2xl bg-gray-900 border-cyan-500/30 max-h-[80vh] overflow-y-auto">
+                          <DialogHeader>
+                            <DialogTitle className="text-2xl text-white">{project.title}</DialogTitle>
+                            <DialogDescription className="text-cyan-400">
+                              {project.category}
+                            </DialogDescription>
+                          </DialogHeader>
+                          {project.detailedContent}
+                        </DialogContent>
+                      </Dialog>
+                    )}
                     <Button 
                       variant="outline" 
                       size="sm" 
