@@ -633,7 +633,7 @@ export default function Home() {
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <a href="mailto:shayanhussain28@gmail.com">
+            <a href="mailto:shayanhussain268@gmail.com">
               <Button className="bg-cyan-500 hover:bg-cyan-600 text-black font-semibold px-8 py-6 text-lg">
                 <Mail className="w-5 h-5 mr-2" /> Send Email
               </Button>
@@ -656,7 +656,7 @@ export default function Home() {
           </div>
           
           <div className="text-gray-500 text-sm">
-            <p>📧 shayanhussain28@gmail.com | 📱 +92 324 2123466 | 🔗 linkedin.com/in/sshayanhussain | 💻 github.com/SShayanHussain</p>
+            <p>📧 shayanhussain268@gmail.com | 📱 +92 324 2123466 | 🔗 linkedin.com/in/sshayanhussain | 💻 github.com/SShayanHussain</p>
           </div>
         </div>
       </section>
