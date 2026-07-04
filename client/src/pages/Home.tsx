@@ -41,8 +41,8 @@ export default function Home() {
       description: "Enterprise-grade multi-tenant RAG engine that connects to company help centers to automatically answer repetitive customer questions with cited, grounded replies and automated human handoff.",
       tech: ["Next.js 14", "TypeScript", "FastAPI (Python)", "PostgreSQL (pgvector)", "Redis", "Celery", "AWS EC2", "AWS RDS", "Docker", "GitHub Actions"],
       image: "/manus-storage/ai-ml-showcase_78553193.png", // Placeholder image, ready for video replacement
-      liveLink: "#",
-      githubLink: "#",
+      liveLink: "http://54.208.178.218/",
+      githubLink: "https://github.com/SShayanHussain/deflekt",
       detailedContent: (
         <div className="space-y-4 text-sm text-gray-300 mt-4">
           <div>
@@ -459,6 +459,25 @@ export default function Home() {
                             </DialogDescription>
                           </DialogHeader>
                           {project.detailedContent}
+                          <div className="flex gap-4 mt-6 pt-4 border-t border-gray-800">
+                            {project.liveLink !== "#" && (
+                              <Button 
+                                onClick={() => window.open(project.liveLink, '_blank')}
+                                className="bg-cyan-500 hover:bg-cyan-600 text-black font-semibold"
+                              >
+                                <ExternalLink className="w-4 h-4 mr-2" /> Live Demo
+                              </Button>
+                            )}
+                            {project.githubLink !== "#" && (
+                              <Button 
+                                variant="outline"
+                                onClick={() => window.open(project.githubLink, '_blank')}
+                                className="border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10"
+                              >
+                                <Github className="w-4 h-4 mr-2" /> Source Code
+                              </Button>
+                            )}
+                          </div>
                         </DialogContent>
                       </Dialog>
                     )}
@@ -470,6 +489,16 @@ export default function Home() {
                     >
                       <ExternalLink className="w-4 h-4 mr-2" /> Live Demo
                     </Button>
+                    {project.githubLink !== "#" && (
+                      <Button 
+                        variant="outline" 
+                        size="sm" 
+                        className="flex-1 border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10"
+                        onClick={() => window.open(project.githubLink, '_blank')}
+                      >
+                        <Github className="w-4 h-4 mr-2" /> GitHub
+                      </Button>
+                    )}
                   </div>
                 </div>
               </div>
