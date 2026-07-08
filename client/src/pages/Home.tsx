@@ -78,6 +78,7 @@ export default function Home() {
       description: "A scalable, multi-tenant distributed system for visually composing resilient, AI-powered background workflows with exactly-once execution guarantees.",
       tech: ["Next.js", "Fastify", "TypeScript", "BullMQ", "Redis", "PostgreSQL", "React Flow", "Docker", "Nginx"],
       image: "/manus-storage/ai-ml-showcase_78553193.png",
+      video: "/videos/flowlet.mp4",
       liveLink: "http://flowlet-automate.vercel.app/",
       githubLink: "https://github.com/SShayanHussain/flowlet",
       detailedContent: (
