@@ -30,6 +30,7 @@ export default function Home() {
     description: string;
     tech: string[];
     image: string;
+    video?: string;
     liveLink: string;
     githubLink: string;
     detailedContent?: React.ReactNode;
@@ -40,7 +41,8 @@ export default function Home() {
       category: "Full-Stack AI SaaS",
       description: "Enterprise-grade multi-tenant RAG engine that connects to company help centers to automatically answer repetitive customer questions with cited, grounded replies and automated human handoff.",
       tech: ["Next.js 14", "TypeScript", "FastAPI (Python)", "PostgreSQL (pgvector)", "Redis", "Celery", "AWS EC2", "AWS RDS", "Docker", "GitHub Actions"],
-      image: "/manus-storage/ai-ml-showcase_78553193.png", // Placeholder image, ready for video replacement
+      image: "/manus-storage/ai-ml-showcase_78553193.png",
+      video: "/videos/deflekt.mp4",
       liveLink: "http://54.208.178.218/",
       githubLink: "https://github.com/SShayanHussain/deflekt",
       detailedContent: (
@@ -447,14 +449,25 @@ export default function Home() {
                 onMouseEnter={() => setHoveredProject(idx)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
-                {/* Project Image */}
-                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-cyan-500/10 to-purple-500/10">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                {/* Project Media */}
+                <div className="relative h-48 overflow-hidden bg-gradient-to-br from-cyan-500/10 to-purple-500/10 bg-black">
+                  {project.video ? (
+                    <video
+                      src={project.video}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+                  ) : (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-50" />
                 </div>
                 
                 {/* Project Content */}
