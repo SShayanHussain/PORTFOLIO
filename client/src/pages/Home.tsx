@@ -71,6 +71,43 @@ export default function Home() {
     },
     {
       id: 1,
+      title: "Flowlet — AI-Native Workflow Automation Platform",
+      category: "Full-Stack Automation",
+      description: "A scalable, multi-tenant distributed system for visually composing resilient, AI-powered background workflows with exactly-once execution guarantees.",
+      tech: ["Next.js", "Fastify", "TypeScript", "BullMQ", "Redis", "PostgreSQL", "React Flow", "Docker", "Nginx"],
+      image: "/manus-storage/ai-ml-showcase_78553193.png",
+      liveLink: "http://flowlet-automate.vercel.app/",
+      githubLink: "https://github.com/SShayanHussain/flowlet",
+      detailedContent: (
+        <div className="space-y-4 text-sm text-gray-300 mt-4">
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">Executive Summary & Problem Solved</h4>
+            <p>Traditional API integrations fail under load, and standard AI agents lack deterministic reliability. Flowlet is an enterprise-grade workflow automation engine that treats every run as a distributed background job. Users visually build pipelines, and Flowlet guarantees they run securely, fairly, and idempotently, regardless of traffic spikes or LLM latency.</p>
+          </div>
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">Architecture & Tech Stack Choices</h4>
+            <ul className="list-disc pl-5 space-y-1">
+              <li><strong className="text-cyan-400">Frontend / App Layer:</strong> Next.js (App Router), TypeScript, TailwindCSS, shadcn/ui, React Flow (Visual DAG Builder).</li>
+              <li><strong className="text-cyan-400">API & Ingestion:</strong> Fastify for high-throughput webhook ingestion and API routing.</li>
+              <li><strong className="text-cyan-400">Worker & Queueing:</strong> BullMQ + Redis for distributed task queuing and DAG (Directed Acyclic Graph) traversal.</li>
+              <li><strong className="text-cyan-400">Database:</strong> PostgreSQL for robust transactional storage, tracking DAG nodes, executions, and tenant connections.</li>
+              <li><strong className="text-cyan-400">Infrastructure:</strong> Docker Compose, Nginx (edge rate-limiting).</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">Core Technical Features</h4>
+            <ul className="list-disc pl-5 space-y-1">
+              <li><strong className="text-cyan-400">3-Layer Idempotency:</strong> Guarantees that a webhook retry won't trigger a duplicate workflow run, ensuring exactly-once execution.</li>
+              <li><strong className="text-cyan-400">Crash-Safe Fairness Lease:</strong> Specialized queue management ensures that slow LLM nodes don't block fast data-transformation nodes.</li>
+              <li><strong className="text-cyan-400">Strict Tenant Data Isolation:</strong> All API routes verify shared JWTs and enforce tenant-scoping for connections, runs, and costs.</li>
+              <li><strong className="text-cyan-400">Resilient AI Steps:</strong> Enforces structured JSON output via `ajv` schema validation, with an automated repair loop for hallucinations, failing loudly without emitting fake results.</li>
+            </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 2,
       title: "RAG System for Stellar LMS",
       category: "AI/ML",
       description: "Production-grade Retrieval-Augmented Generation system with PDF content extraction and LLM integration",
@@ -80,7 +117,7 @@ export default function Home() {
       githubLink: "#",
     },
     {
-      id: 2,
+      id: 3,
       title: "MERN Stack Notes Application",
       category: "Full-Stack",
       description: "Scalable production-ready Notes app with robust CRUD functionality and real-time collaboration",
@@ -90,7 +127,7 @@ export default function Home() {
       githubLink: "#",
     },
     {
-      id: 3,
+      id: 4,
       title: "RoboComm Campus Robot",
       category: "Robotics",
       description: "Autonomous campus assistant robot with voice interaction, YOLO detection, and real-time navigation",
@@ -100,7 +137,7 @@ export default function Home() {
       githubLink: "#",
     },
     {
-      id: 4,
+      id: 5,
       title: "Voice-Enabled Booking Automation",
       category: "AI/ML",
       description: "Zero-shot conversational agent with Make.com workflows for Calendly, Google Calendar, and OpenAI APIs",
