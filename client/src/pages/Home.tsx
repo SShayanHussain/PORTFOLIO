@@ -111,23 +111,78 @@ export default function Home() {
     },
     {
       id: 2,
-      title: "RAG System for Stellar LMS",
-      category: "AI/ML",
-      description: "Production-grade Retrieval-Augmented Generation system with PDF content extraction and LLM integration",
-      tech: ["Python", "LLMs", "FastAPI", "RAG"],
+      title: "Clause — Evals-First Vertical Document Intelligence",
+      category: "Legal AI Platform",
+      description: "A Corrective RAG (CRAG) engine for legal contracts featuring exact-clause citations, multi-hop reasoning, and strict abstention policies, validated by a rigorous Ragas evaluation harness.",
+      tech: ["Next.js 16", "FastAPI", "LangGraph", "LlamaIndex", "pgvector", "Upstash", "Langfuse"],
       image: "/manus-storage/ai-ml-showcase_78553193.png",
+      video: "/videos/clause.mp4",
       liveLink: "#",
-      githubLink: "#",
+      githubLink: "https://github.com/SShayanHussain/clause",
+      detailedContent: (
+        <div className="space-y-4 text-sm text-gray-300 mt-4">
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">Executive Summary & Problem Solved</h4>
+            <p>Generic "Chat with PDF" wrappers fail in high-stakes environments like legal contract review because they hallucinate, provide vague summaries, and cannot be systematically trusted. Clause solves this by employing an evals-first Corrective RAG (CRAG) pipeline. Rather than guessing, the system performs structured, citation-exact retrievals and utilizes a Self-Critic to abstain ("I don't know") when the evidence is insufficient.</p>
+          </div>
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">Architecture & Tech Stack Choices</h4>
+            <ul className="list-disc pl-5 space-y-1">
+              <li><strong className="text-cyan-400">Frontend Console:</strong> Next.js 16, TailwindCSS, JWT Auth with a custom split-view document UI.</li>
+              <li><strong className="text-cyan-400">RAG Backend:</strong> FastAPI (Python) routing to LlamaIndex and LangGraph.</li>
+              <li><strong className="text-cyan-400">Orchestration:</strong> LangGraph state machine for CRAG flow (Classifier, Evaluator, Critic).</li>
+              <li><strong className="text-cyan-400">Database & Caching:</strong> Supabase PostgreSQL with pgvector for similarity search, Upstash Redis for semantic caching.</li>
+              <li><strong className="text-cyan-400">Observability:</strong> Langfuse for deep LLM trace telemetry.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">Core Technical Features</h4>
+            <ul className="list-disc pl-5 space-y-1">
+              <li><strong className="text-cyan-400">Evals-Driven Development:</strong> Built a comprehensive Ragas ablation table before writing advanced RAG code, ensuring every node addition was mathematically justified.</li>
+              <li><strong className="text-cyan-400">Honest Abstention:</strong> Engineered a dedicated fallback pathway. If the Self-Critic determines the generated answer is not entailed by retrieved chunks, the system safely aborts.</li>
+              <li><strong className="text-cyan-400">Structure-Aware Ingestion:</strong> Bypasses generic chunking by parsing documents into formal hierarchies (sections, clauses), preserving exact metadata for ironclad provenance.</li>
+            </ul>
+          </div>
+        </div>
+      )
     },
     {
       id: 3,
-      title: "MERN Stack Notes Application",
-      category: "Full-Stack",
-      description: "Scalable production-ready Notes app with robust CRUD functionality and real-time collaboration",
-      tech: ["React", "Node.js", "MongoDB", "Express"],
-      image: "/manus-storage/fullstack-showcase_29041b91.png",
-      liveLink: "#",
-      githubLink: "#",
+      title: "Consensus — Supervisor-Orchestrated Multi-Agent Platform",
+      category: "Multi-Agent System",
+      description: "A resilient agentic system utilizing LangGraph state machines, FastAPI, and Redis queues to execute multi-step research tasks with safe human-in-the-loop gates.",
+      tech: ["Next.js 14", "FastAPI", "Python", "LangGraph", "Redis", "PostgreSQL", "FastMCP", "Docker"],
+      image: "/manus-storage/ai-ml-showcase_78553193.png",
+      video: "/videos/consensus.mp4",
+      liveLink: "https://consensus-ai-saas.vercel.app/",
+      githubLink: "https://github.com/SShayanHussain/consensus",
+      detailedContent: (
+        <div className="space-y-4 text-sm text-gray-300 mt-4">
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">Executive Summary & Problem Solved</h4>
+            <p>Autonomous AI agents are dangerous when left unmonitored. They can invoke costly API cycles, loop endlessly, or execute destructive consequential actions. Consensus solves this by structuring execution as a stateful multi-agent LangGraph workflow. By separating read-only and consequential tools, it guarantees no critical action is executed without explicit human authorization.</p>
+          </div>
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">Architecture & Tech Stack Choices</h4>
+            <ul className="list-disc pl-5 space-y-1">
+              <li><strong className="text-cyan-400">Frontend Console:</strong> Next.js (App Router), TypeScript, TailwindCSS, shadcn/ui.</li>
+              <li><strong className="text-cyan-400">API Gateway & Broker:</strong> FastAPI routing runs, enforcing plan limits, with Redis for job queue management.</li>
+              <li><strong className="text-cyan-400">Agent Orchestrator:</strong> LangGraph for stateful multi-agent routing (Supervisor, Researcher, Analyst, Writer, Critic).</li>
+              <li><strong className="text-cyan-400">Tooling Server:</strong> FastMCP for SSE-based model context protocol tools.</li>
+              <li><strong className="text-cyan-400">Persistence & Checkpointing:</strong> PostgreSQL storing serialized graph states, and independent audit logs.</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">Core Technical Features</h4>
+            <ul className="list-disc pl-5 space-y-1">
+              <li><strong className="text-cyan-400">Stateful Graph Interrupts:</strong> Uses LangGraph's native interrupt mechanism to pause execution and store full agent thread states safely in Postgres.</li>
+              <li><strong className="text-cyan-400">Append-Only Auditing:</strong> A parallel, synchronous database ledger that logs every node change, tool call, and user decision for complete audit compliance.</li>
+              <li><strong className="text-cyan-400">Self-Critic Node:</strong> Implements an automated LLM judge that cross-references analyst summaries against source materials to flag and block hallucinations.</li>
+              <li><strong className="text-cyan-400">Tenant & Plan Isolation:</strong> Enforces user-to-workspace mappings with robust token-based guards at the gateway layer.</li>
+            </ul>
+          </div>
+        </div>
+      )
     },
     {
       id: 4,
@@ -138,17 +193,7 @@ export default function Home() {
       image: "/manus-storage/robotics-showcase_4ded3c03.png",
       liveLink: "#",
       githubLink: "#",
-    },
-    {
-      id: 5,
-      title: "Voice-Enabled Booking Automation",
-      category: "AI/ML",
-      description: "Zero-shot conversational agent with Make.com workflows for Calendly, Google Calendar, and OpenAI APIs",
-      tech: ["LLMs", "Make.com", "Voice AI", "Automation"],
-      image: "/manus-storage/ai-ml-showcase_78553193.png",
-      liveLink: "#",
-      githubLink: "#",
-    },
+    }
   ];
 
   const expertise = [
@@ -161,8 +206,8 @@ export default function Home() {
     {
       icon: Brain,
       title: "Applied AI & LLMs",
-      description: "Production-grade AI systems including RAG engines, semantic caching, LLM-as-a-Judge evals, and agentic workflows.",
-      skills: ["LLMs", "RAG", "pgvector", "Semantic Caching", "AI Evals", "NLP"],
+      description: "Production-grade AI systems including Multi-Agent LangGraph workflows, CRAG architectures, and rigorous AI evals.",
+      skills: ["LangGraph", "CRAG", "AI Evals (Ragas)", "LLMs", "pgvector", "FastMCP"],
     },
     {
       icon: Zap,
@@ -181,9 +226,9 @@ export default function Home() {
   const skills = {
     "Languages": ["Python", "TypeScript", "JavaScript", "SQL", "Java", "HTML/CSS"],
     "Frontend": ["Next.js 14", "React", "Tailwind CSS", "Shadcn/UI", "Framer Motion"],
-    "Backend": ["FastAPI", "Node.js", "Express", "Celery", "REST APIs"],
-    "AI/ML": ["LLMs", "RAG", "pgvector", "Semantic Search", "TensorFlow", "PyTorch", "YOLO"],
-    "Databases & Cache": ["PostgreSQL", "Redis", "MongoDB", "Supabase"],
+    "Backend": ["FastAPI", "Node.js", "FastMCP", "Celery", "REST APIs"],
+    "AI/ML": ["LangGraph", "Multi-Agent Systems", "CRAG", "LLMs", "pgvector", "Langfuse", "Ragas"],
+    "Databases & Cache": ["PostgreSQL", "Redis", "Upstash", "Supabase", "MongoDB"],
     "DevOps & Cloud": ["AWS (EC2/RDS)", "Docker", "GitHub Actions", "CI/CD", "Git", "Vercel"],
   };
 
