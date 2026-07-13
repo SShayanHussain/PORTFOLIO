@@ -117,7 +117,7 @@ export default function Home() {
       tech: ["Next.js 16", "FastAPI", "LangGraph", "LlamaIndex", "pgvector", "Upstash", "Langfuse"],
       image: "/manus-storage/ai-ml-showcase_78553193.png",
       video: "/videos/clause.mp4",
-      liveLink: "#",
+      liveLink: "https://clause-beige.vercel.app/",
       githubLink: "https://github.com/SShayanHussain/clause",
       detailedContent: (
         <div className="space-y-4 text-sm text-gray-300 mt-4">
