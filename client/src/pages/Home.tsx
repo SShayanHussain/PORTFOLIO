@@ -186,6 +186,45 @@ export default function Home() {
     },
     {
       id: 4,
+      title: "Ringback — Text-First AI Voice Agent for Home Services",
+      category: "AI Voice Agent",
+      description: "An eval-gated inbound voice agent that books, reschedules, cancels, answers FAQ, qualifies leads, and escalates to humans — built text-first with behavioral guardrails and no-code automation integration.",
+      tech: ["Python", "FastAPI", "Next.js 14", "PostgreSQL", "Supabase", "Make.com", "Groq", "Docker"],
+      image: "/manus-storage/ai-ml-showcase_78553193.png",
+      video: "/videos/ringback.mp4",
+      liveLink: "#",
+      githubLink: "https://github.com/SShayanHussain/ringback",
+      detailedContent: (
+        <div className="space-y-4 text-sm text-gray-300 mt-4">
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">Executive Summary & Problem Solved</h4>
+            <p>Home-services businesses (plumbing, HVAC, electrical, cleaning) lose revenue every time a call goes to voicemail — a missed call tonight is a lost job tonight. Generic chatbot builders fail because they hallucinate availability, book phantom slots, and can't enforce the confirmation protocols real businesses need. <strong className="text-white">Ringback</strong> solves this with a <em>text-first</em> AI agent that proves its conversation logic (intents, tools, guardrails, confirmation, escalation) in text mode with a regression eval set, then adds voice as a thin STT/TTS wrapper around the identical core.</p>
+          </div>
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">Architecture & Tech Stack Choices</h4>
+            <ul className="list-disc pl-5 space-y-1">
+              <li><strong className="text-cyan-400">Conversation Core:</strong> Python (FastAPI), deterministic rule-based NLU with Groq/Gemini swap-in, tool-calling against a calendar/CRM interface.</li>
+              <li><strong className="text-cyan-400">Orchestrator:</strong> FastAPI — JWT auth, tenant/workspace scoping, call logging, webhook-out to Make.com.</li>
+              <li><strong className="text-cyan-400">Web Dashboard:</strong> Next.js 14 (App Router), React — playground, call logs, calendar, configuration, integrations.</li>
+              <li><strong className="text-cyan-400">Database:</strong> Supabase PostgreSQL (transaction pooler :6543 at runtime, session :5432 for migrations).</li>
+              <li><strong className="text-cyan-400">Automation:</strong> Make.com scenario with Router-based event splitting → Google Calendar + Gmail notifications.</li>
+              <li><strong className="text-cyan-400">Deployment:</strong> Vercel (web) + Render free (agent-core + orchestrator) + UptimeRobot (keep-warm).</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">Core Technical Features</h4>
+            <ul className="list-disc pl-5 space-y-1">
+              <li><strong className="text-cyan-400">Text-First Methodology:</strong> Entire conversation core built and proven in text before voice, using a regression eval set. Voice = STT (audio→text) → same core → TTS (text→audio). Proving it in text costs nothing and de-risks the paid voice pipeline.</li>
+              <li><strong className="text-cyan-400">Behavioral Guardrails (Wired + Tested):</strong> <code className="text-purple-400">assert_confirmed()</code> blocks writes without spoken confirmation; <code className="text-purple-400">assert_slot_offered()</code> prevents fabricated availability. Both have dedicated tests — not just defined, but called in the execution path and verified in CI.</li>
+              <li><strong className="text-cyan-400">Vertical as Config:</strong> Services, durations, business hours, FAQ, escalation rules live in YAML config files. Switch from home-services to clinics by changing one env var — no code change.</li>
+              <li><strong className="text-cyan-400">No-Code Automation Seam:</strong> Agent core fires HMAC-signed webhooks. Make.com routes by event type: <code className="text-purple-400">booking.created</code> → Calendar + Email, <code className="text-purple-400">call.escalated</code> → urgent staff alert, <code className="text-purple-400">lead.qualified</code> → follow-up notification.</li>
+            </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 5,
       title: "RoboComm Campus Robot",
       category: "Robotics",
       description: "Autonomous campus assistant robot with voice interaction, YOLO detection, and real-time navigation",
