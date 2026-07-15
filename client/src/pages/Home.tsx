@@ -192,7 +192,7 @@ export default function Home() {
       tech: ["Python", "FastAPI", "Next.js 14", "PostgreSQL", "Supabase", "Make.com", "Groq", "Docker"],
       image: "/manus-storage/ai-ml-showcase_78553193.png",
       video: "/videos/ringback.mp4",
-      liveLink: "#",
+      liveLink: "https://ringback-web.vercel.app/",
       githubLink: "https://github.com/SShayanHussain/ringback",
       detailedContent: (
         <div className="space-y-4 text-sm text-gray-300 mt-4">
